@@ -2,44 +2,23 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <!-- Mobile Specific Metas
-  ================================================== -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Construction Html5 Template">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="author" content="Themefisher">
     <meta name="generator" content="Themefisher Constra HTML Template v1.0">
-
-    <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}" />
-
-    <!-- Themefisher Icon font -->
     <link rel="stylesheet" href="{{asset('plugins/themefisher-font/style.css')  }}">
-    <!-- bootstrap.min css -->
     <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
-
-    <!-- Animate css -->
     <link rel="stylesheet" href="{{ asset('plugins/animate/animate.css') }}">
-    <!-- Slick Carousel -->
     <link rel="stylesheet" href="{{ asset('plugins/slick/slick.css')  }}">
     <link rel="stylesheet" href="{{ asset('plugins/slick/slick-theme.css') }}">
-
-    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body id="body">
@@ -56,7 +35,6 @@
                 <!-- Site Logo -->
                 <div class="logo text-center">
                     <a href="{{ url('/') }}">
-                        <!-- replace logo here -->
                         <svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
                              xmlns:xlink="http://www.w3.org/1999/xlink">
                             <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="40"
@@ -72,10 +50,9 @@
                 </div>
             </div>
             <div class="col-md-4 col-xs-12 col-sm-4">
-                <!-- Cart -->
                 <ul class="top-menu text-right list-inline">
                     <li class="dropdown cart-nav dropdown-slide">
-                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
+                        <a href="{{ route('cart') }}" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                                 class="tf-ion-android-cart"></i>Cart</a>
                         <div class="dropdown-menu cart-dropdown">
                             <!-- Cart Item -->
@@ -178,11 +155,13 @@
                         <a href="{{ route('blog') }}">Blog</a>
                     </li>
                     <li class="dropdown ">
-                        <a href="{{ route('products') }}">Products</a>
-                    </li>
-                    <li class="dropdown ">
                         <a href="{{ route('user_dashboard') }}">Dashboard</a>
                     </li>
+                    @auth()
+                        <li class="dropdown ">
+                            <a href="{{ route('cart') }}"> My Cart</a>
+                        </li>
+                    @endauth
                     <li class="dropdown ">
                         <a href="{{ route('contact_us') }}">Contact</a>
                     </li>
@@ -192,93 +171,51 @@
                     <li class="dropdown ">
                         <a href="{{ route('faq') }}">FAQ</a>
                     </li>
+                   @guest()
+                        <li class="dropdown ">
+                            <a href="{{ route('login') }}">login</a>
+                        </li>
+                    @endguest
+                    @auth()
+                        <li class="dropdown ">
+                            <a class="" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
+                    @endauth
                 </ul><!-- / .nav .navbar-nav -->
             </div>
         </div><!-- / .container -->
     </nav>
 </section>
-{{--    <div id="app">--}}
-{{--        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">--}}
-{{--            <div class="container">--}}
-{{--                <a class="navbar-brand" href="{{ url('/') }}">--}}
-{{--                    {{ config('app.name', 'Laravel') }}--}}
-{{--                </a>--}}
-{{--                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">--}}
-{{--                    <span class="navbar-toggler-icon"></span>--}}
-{{--                </button>--}}
-
-{{--                <div class="collapse navbar-collapse" id="navbarSupportedContent">--}}
-{{--                    <!-- Left Side Of Navbar -->--}}
-{{--                    <ul class="navbar-nav mr-auto">--}}
-
-{{--                    </ul>--}}
-
-{{--                    <!-- Right Side Of Navbar -->--}}
-{{--                    <ul class="navbar-nav ml-auto">--}}
-{{--                        <!-- Authentication Links -->--}}
-{{--                        @guest--}}
-{{--                            @if (Route::has('login'))--}}
-{{--                                <li class="nav-item">--}}
-{{--                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>--}}
-{{--                                </li>--}}
-{{--                            @endif--}}
-
-{{--                            @if (Route::has('register'))--}}
-{{--                                <li class="nav-item">--}}
-{{--                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>--}}
-{{--                                </li>--}}
-{{--                            @endif--}}
-{{--                        @else--}}
-{{--                            <li class="nav-item dropdown">--}}
-{{--                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
-{{--                                    {{ Auth::user()->name }}--}}
-{{--                                </a>--}}
-
-{{--                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">--}}
-{{--                                    <a class="dropdown-item" href="{{ route('logout') }}"--}}
-{{--                                       onclick="event.preventDefault();--}}
-{{--                                                     document.getElementById('logout-form').submit();">--}}
-{{--                                        {{ __('Logout') }}--}}
-{{--                                    </a>--}}
-
-{{--                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
-{{--                                        @csrf--}}
-{{--                                    </form>--}}
-{{--                                </div>--}}
-{{--                            </li>--}}
-{{--                        @endguest--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </nav>--}}
-
             @yield('content')
-
-
-
-
 <footer class="footer section text-center">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <ul class="social-media">
                     <li>
-                        <a href="https://www.facebook.com/themefisher">
+                        <a href="https://www.facebook.com/">
                             <i class="tf-ion-social-facebook"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/themefisher">
+                        <a href="https://www.instagram.com/">
                             <i class="tf-ion-social-instagram"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.twitter.com/themefisher">
+                        <a href="https://www.twitter.com/">
                             <i class="tf-ion-social-twitter"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.pinterest.com/themefisher/">
+                        <a href="https://www.pinterest.com//">
                             <i class="tf-ion-social-pinterest"></i>
                         </a>
                     </li>
@@ -288,47 +225,28 @@
                         <a href="contact.html">CONTACT</a>
                     </li>
                     <li>
-                        <a href="shop.html">SHOP</a>
+                        <a href="{{ route('shop') }}">SHOP</a>
                     </li>
                     <li>
-                        <a href="pricing.html">Pricing</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">PRIVACY POLICY</a>
+                        <a href="{{ route('privacy') }}">PRIVACY POLICY</a>
                     </li>
                 </ul>
-                <p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by <a href="https://themefisher.com/">Themefisher</a></p>
+                <p class="copyright-text">Copyright &copy; 2021, Front-End by <a href="https://themefisher.com/">Themefisher</a> Back-End By
+                    <a href="https://github.com/tauseedzaman">Tauseed Zaman</a> </p>
             </div>
         </div>
     </div>
 </footer>
 
-    <!--
-    Essential Scripts
-    =====================================-->
-
-    <!-- Main jQuery -->
     <script src="{{ asset('plugins/jquery/dist/jquery.min.js') }}"></script>
-    <!-- Bootstrap 3.1 -->
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-    <!-- Bootstrap Touchpin -->
     <script src="{{ asset('plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js') }}"></script>
-    <!-- Instagram Feed Js -->
     <script src="{{  asset('plugins/instafeed/instafeed.min.js') }}"></script>
-    <!-- Video Lightbox Plugin -->
     <script src="{{ asset('plugins/ekko-lightbox/dist/ekko-lightbox.min.js') }}"></script>
-    <!-- Count Down Js -->
     <script src="{{ asset('plugins/syo-timer/build/jquery.syotimer.min.js') }}"></script>
-
-    <!-- slick Carousel -->
     <script src="{{ asset('plugins/slick/slick.min.js') }}"></script>
     <script src="{{ asset('plugins/slick/slick-animation.min.js') }}"></script>
-
-    <!-- Google Mapl -->
-    <script src="{{ asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw') }}"></script>
-    <script type="text/javascript" src="{{ asset('plugins/google-map/gmap.js') }}"></script>
-
-    <!-- Main Js File -->
+{{--    <script type="text/javascript" src="{{ asset('plugins/google-map/gmap.js') }}"></script>--}}
     <script src="{{ asset('js/script.js') }}"></script>
 
 </body>
