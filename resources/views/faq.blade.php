@@ -8,7 +8,7 @@
                     <div class="content">
                         <h1 class="page-name">Frequently Asked Questions</h1>
                         <ol class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="{{ url('/') }}">Home</a></li>
                             <li class="active">f.a.q</li>
                         </ol>
                     </div>

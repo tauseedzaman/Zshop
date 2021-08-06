@@ -4,13 +4,10 @@
     <section class="user-dashboard page-wrapper">
         <div class="container">
             <div class="row">
+                @include('user_menu')
+            </div>
+            <div class="row">
                 <div class="col-md-12">
-                    <ul class="list-inline dashboard-menu text-center">
-                        <li><a href="dashboard.html">Dashboard</a></li>
-                        <li><a href="order.html">Orders</a></li>
-                        <li><a class="active" href="address.html">Address</a></li>
-                        <li><a href="profile-details.html">Profile Details</a></li>
-                    </ul>
                     <div class="dashboard-wrapper user-dashboard">
                         <div class="table-responsive">
                             <table class="table">

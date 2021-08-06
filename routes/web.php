@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+Route::view('/', 'welcome');
 Route::view('/thankYou','confirmation')->name('thanks_for_shoping');
 Route::view('/dashboard','user_dashboard')->name('user_dashboard');
 Route::view('/cart','cart')->name('cart');
@@ -15,9 +17,18 @@ Route::view('/profile','profile')->name('user_profile');
 Route::view('/contact-us','contact_us')->name('contact_us');
 Route::view('/faq','faq')->name('faq');
 Route::view('/privacy','privacy')->name('privacy');
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+/*
+ * Admin routes
+ */
+
+Route::view('/admin/dashboard','admin.dashboard ')->name('admin.dashboard');
+
+Route::get('/contact/developer',function (){
+    return "contact developer";
+})->name('contact_developer');
+
 
 Auth::routes();
 

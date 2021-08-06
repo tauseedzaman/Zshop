@@ -1,18 +1,15 @@
 @extends('layouts.app')
 @section('content')
 
-    <section class="user-dashboard page-wrapper">
+    <section class="user-dashboard  page-wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <ul class="list-inline dashboard-menu text-center">
-                        <li><a href="dashboard.html">Dashboard</a></li>
-                        <li><a href="order.html">Orders</a></li>
-                        <li><a href="address.html">Address</a></li>
-                        <li><a class="active"  href="profile-details.html">Profile Details</a></li>
-                    </ul>
-                    <div class="dashboard-wrapper dashboard-user-profile">
-                        <div class="media">
+                @include('user_menu')
+            </div>
+            <div class="row">
+                <div class="col-md-12  ">
+                    <div class="dashboard-wrapper  dashboard-user-profile shadow-lg rounded">
+                        <div class="media ">
                             <div class="pull-left text-center" href="#!">
                                 <img class="media-object user-img" src="images/avater.jpg" alt="Image">
                                 <a href="#x" class="btn btn-transparent mt-20">Change Image</a>
