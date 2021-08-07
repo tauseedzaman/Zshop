@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> {{ config('app.name') }} Admin Area</title>
-{{--    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">--}}
+    {{--    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">--}}
     <link rel="stylesheet" href="{{ asset('adminArea/plugins/fontawesome-free/css/all.min.css')}}">
     <link rel="stylesheet" href="{{ asset('adminArea/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
     <link rel="stylesheet" href="{{asset('adminArea/dist/css/adminlte.min.css')}}">
@@ -32,7 +32,7 @@
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
             <!-- Navbar Search -->
-           @livewire('admin.searchbar')
+            @livewire('admin.searchbar')
 
             <!-- Messages Dropdown Menu -->
             @livewire('admin.dashboard.comments')
@@ -705,43 +705,45 @@
         <!-- /.sidebar -->
     </aside>
 
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
 
-    @yield('admin.content')
+
+    {{ $slot }}
+
+
     <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
 
-    <!-- Main Footer -->
-    <footer class="main-footer">
-        <strong>Copyright &copy; 2021 Designed By <a href="">AdminLTE.io</a> and Developed By <a href="https://github.com/tauseedzaman">Tauseed zaman</a></strong>
-        All rights reserved.
-    </footer>
-</div>
-<script src="{{ asset('adminArea/plugins/jquery/jquery.min.js') }}"></script>
-<!-- Bootstrap -->
-<script src="{{ asset('adminArea/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- overlayScrollbars -->
-<script src="{{ asset('adminArea/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('adminArea/dist/js/adminlte.js') }}"></script>
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <strong>Copyright &copy; 2021 Designed By <a href="">AdminLTE.io</a> and Developed By <a href="https://github.com/tauseedzaman">Tauseed zaman</a></strong>
+            All rights reserved.
+        </footer>
+    </div>
+    <script src="{{ asset('adminArea/plugins/jquery/jquery.min.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ asset('adminArea/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- overlayScrollbars -->
+    <script src="{{ asset('adminArea/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{ asset('adminArea/dist/js/adminlte.js') }}"></script>
 
-<!-- PAGE PLUGINS -->
-<!-- jQuery Mapael -->
-<script src="{{ asset('adminArea/plugins/jquery-mousewheel/jquery.mousewheel.js') }}"></script>
-<script src="{{ asset('adminArea/plugins/raphael/raphael.min.js') }}"></script>
-<script src="{{ asset('adminArea/plugins/jquery-mapael/jquery.mapael.min.js') }}"></script>
-<script src="{{ asset('adminArea/plugins/jquery-mapael/maps/usa_states.min.js') }}"></script>
-<!-- ChartJS -->
-<script src="{{ asset('adminArea/plugins/chart.js/Chart.min.js') }}"></script>
+    <!-- PAGE PLUGINS -->
+    <!-- jQuery Mapael -->
+    <script src="{{ asset('adminArea/plugins/jquery-mousewheel/jquery.mousewheel.js') }}"></script>
+    <script src="{{ asset('adminArea/plugins/raphael/raphael.min.js') }}"></script>
+    <script src="{{ asset('adminArea/plugins/jquery-mapael/jquery.mapael.min.js') }}"></script>
+    <script src="{{ asset('adminArea/plugins/jquery-mapael/maps/usa_states.min.js') }}"></script>
+    <!-- ChartJS -->
+    <script src="{{ asset('adminArea/plugins/chart.js/Chart.min.js') }}"></script>
 
-<!-- AdminLTE for demo purposes -->
-<script src="{{ asset('adminArea/dist/js/demo.js') }}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('adminArea/dist/js/pages/dashboard2.js') }}"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="{{ asset('adminArea/dist/js/demo.js') }}"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="{{ asset('adminArea/dist/js/pages/dashboard2.js') }}"></script>
 
 </body>
 </html>
