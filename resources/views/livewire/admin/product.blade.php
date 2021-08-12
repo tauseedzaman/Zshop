@@ -11,99 +11,13 @@
                     @endif
                 </div>
             </div>
-            {{-- <form class="shadow rounded p-3" wire:submit.prevent="add_new_product">
-                <div class="text-capitalize bg-dark p-2 shadow mb-3 text-center text-lg text-light rounded" >{{ __('add new product') }}</div>
-
-                <div class="form-group">
-                    <label for="Name">{{ __("Name") }}</label>
-                    <input type="text" name="Name" wire:model.lazy="name"  placeholder="Enter Name" class="form-control" required />
-                    @error('name') <span class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
-                </div>
-
-                <div class="form-group">
-                    <label for="weight">{{ __('Weight') }}</label>
-                    <input type="text" name="weight" wire:model.lazy="weight"  placeholder="Enter product weight Kg\'s " class="form-control" required />
-                    @error('weight') <span class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
-                </div>
-
-                <div class="form-group">
-                    <label for="description">{{ __('Description') }}</label>
-                    <input type="text" name="description" wire:model.lazy="description"  placeholder="Enter Description" class="form-control" required />
-                </div>
-                @error('description') <span class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
-
-                <div class="form-group"  x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true" x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false"  x-on:livewire-upload-progress="progress = $event.detail.progress">
-                    <label for="image" class="form-control-label">{{ __("Product Image") }}</label>
-                    <div class="custom-file">
-                        <input type="file" name="image" wire:model="image" class="custom-file-input ">
-                        <label class="custom-file-label">{{ __("Choose Product Image") }}</label>
-                    </div>
-                    <div x-show="isUploading" style="width: 100%">
-                        <progress class="progress-bar" role="progressbar" max="100" aria-valuenow="progress" x-bind:value="progress"></progress>
-                    </div>
-                    @if ($image)
-                        <br>Preview:<br>
-                        <img width="20%" height="20%" src="{{ $image->temporaryUrl() }}">
-                    @endif
-                    @if ($edit_image)
-                        <br>Old Image Preview:<br>
-                        <img width="20%" height="20%" src="{{ config('app.url').$edit_image }}">
-                    @endif
-
-                    <div wire:loading wire:target="image">{{ __("Uploading") }}...</div><br>
-                    @error('image') <span class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
-                </div>
-
-                <div class="form-group"  x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true" x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false"  x-on:livewire-upload-progress="progress = $event.detail.progress">
-                    <label for="thumbnail" class="form-control-label">{{ __("Product Thumbnail") }}</label>
-                    <div class="custom-file">
-                        <input type="file" name="thumbnail" wire:model="thumbnail" class="custom-file-input ">
-                        <label class="custom-file-label">{{ __("Choose Product Thumbnail") }}</label>
-                    </div>
-                    @if ($thumbnail)
-                        <br>Preview:<br>
-                        <img width="20%" height="20%" src="{{ $thumbnail->temporaryUrl() }}">
-                    @endif
-                    @if ($edit_thumbnail)
-                        <br>Old Photo Preview:<br>
-                        <img width="20%" height="20%" src="{{ config('app.url').$edit_thumbnail }}">
-                    @endif
-
-                    <div wire:loading wire:target="thumbnail">{{ __("Uploading") }}...</div><br>
-                    @error('thumbnail') <span class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
-                </div>
-
-                <div class="form-group">
-                    <label for="category">{{ __("Category") }}</label>
-                    <select name="category" wire:model.lazy="category" class="form-control" required>
-                        <option selected> -- Choose Category -- </option>
-                        @forelse ($products as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @empty
-                            <option value="" class="text-warning">{{ __("No head Found!") }}</option>
-                        @endforelse
-
-                    </select>
-                    @error('category') <span class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
-                </div>
-
-                <div class="form-group">
-                    <label for="stock">{{ __('Stock') }}</label>
-                    <input type="number" name="stock" wire:model="stock"  placeholder="Enter Product Stock " class="form-control" required />
-                    @error('stock') <span class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
-                </div>
-
-                <div class="form-group">
-                    <input type="submit" class="btn btn-primary" value="{{ $button_text }}">
-                </div>
-
-            </form> --}}
+         
             <form class=" p-2 shadow bg-light rounded my-4 " wire:submit.prevent="add_new_product">
-                <h2 class="text-success shadow p-3 bg-success text-light border border-success">Create New Porduct</h2>
+                <h2 class="text-success shadow p-3 bg-success text-light border rounded border-success">Create New Porduct</h2>
 
                 <div class="row mb-3">
 
-                    <div class="col-12 mx-auto">
+                    <div class="col-12 mx-auto my-2">
                         <div class="form-floating mb-3 mb-md-0">
                             <input class="form-control @error('name') is-invalid @enderror" wire:model.lazy="name"
                                 id="p_name" type="text" placeholder="Enter Product Name" />
@@ -113,7 +27,37 @@
                         @enderror
                     </div>
 
-                    <div class="col-12 mx-auto my-3">
+                    <div class="col-12 mx-auto my-2">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input class="form-control @error('Weight') is-invalid @enderror" wire:model.lazy="weight"
+                                id="Weight" type="number" placeholder="Enter Product Weight" />
+                            <label for="p_name">Product Weight <small class="text-success">kg's</small></label>
+                        </div>
+                        @error('weight') <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                      <div class="col-12 mx-auto my-2">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input class="form-control @error('price') is-invalid @enderror" wire:model.lazy="price"
+                                id="price" type="number" placeholder="Enter Product Price" />
+                            <label for="price">Product Price</label>
+                        </div>
+                        @error('price') <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="col-12 mx-auto my-2">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input class="form-control @error('Stock') is-invalid @enderror" wire:model.lazy="stock"
+                                id="Stock" type="number" placeholder="Enter Product Stock" />
+                            <label for="Stock">Product Stock</label>
+                        </div>
+                        @error('stock') <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="col-12 mx-auto my-2">
                         <div class="form-floating">
                             <textarea class="form-control @error('description') is-invalid @enderror "
                                 wire:model.lazy="description" name="description" placeholder="Product Description"
@@ -122,18 +66,33 @@
                         </div>
                         @error('description') <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
                         @enderror
-
                     </div>
+
+                        <div class="form-group col-12 mx-auto my-2">
+                            <select class="form-control form-control-lg @error('category') is-invalid @enderror"
+                                wire:model.lazy="category">
+                                <option selected> {{ $category != '' ? $category : ' -- Choose Product Category -- ' }}</option>
+                                @forelse ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @empty
+                                    <option value="" class="text-warning">{{ __('No head Found!') }}</option>
+                                @endforelse
+                            </select>
+                            @error('category') <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
+                            @enderror
+                        </div>
                 </div>
+
                 <div class="col mx-auto">
                     <div class="form-group">
                         <label for="Thumbnail">Choose Product Thumbnail</label>
-                        <div class="input-grou  p">
+                        <div class="input-grou p">
                             <div class="custom-file">
                                 <input type="file" class="form-control" wire:model.lazy="thumbnail" id="Thumbnail">
                                 @error('thumbnail') <span
                                     class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
-                                @if ($thumbnail)
+                                    <div wire:loading wire:target="thumbnail">Uploading...</div><br>
+                                    @if ($thumbnail)
                                     <br>Preview:<br>
                                     <img width="25%" height="25%" src="{{ $thumbnail->temporaryUrl() }}">
                                 @endif
@@ -141,20 +100,50 @@
                                     <br>Old Photo Preview:<br>
                                     <img width="40%" height="40%" src="{{ config('app.url') . $edit_thumbnail }}">
                                 @endif
-
-                                <div wire:loading wire:target="photo">Uploading...</div><br>
-                                @error('photo') <span
-                                    class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <div class="col mx-auto">
+                    <div class="form-group">
+                        <label for="Thumbnail">Choose Product Image</label>
+                        <div class="input-grou p">
+                            <div class="custom-file">
+                                <input type="file" class="form-control" wire:model.lazy="image" id="image">
+                                @error('image') <span
+                                    class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
+                                    <div wire:loading wire:target="image">Uploading...</div><br>
+                                    @if ($image)
+                                    <br>Preview:<br>
+                                    <img width="25%" height="25%" src="{{ $image->temporaryUrl() }}">
+                                @endif
+                                @if ($edit_image)
+                                    <br>Old image Preview:<br>
+                                    <img width="40%" height="40%" src="{{ config('app.url') . $edit_image }}">
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+
                 <div class="mt-4 mb-0">
                     <div class="d-grid"><button class="btn btn-success btn-block btn-lg">{{ $button_text }}</button>
                     </div>
                 </div>
             </form>
 
+            <div class="row">
+                <div class="col mx-auto">
+                    @if (session()->has('message'))
+                        <div class="alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                    @endif
+                </div>
+            </div>
             <div class="row mt-4 shadow rounded p-3">
                 <div class="col mx-auto">
                     <h2 class="text-success rounded text-center shadow p-3 bg-info text-light border border-success">All
@@ -184,9 +173,11 @@
                                     <td>{{ $Product->description }}</td>
                                     <td>{{ $Product->category_id }}</td>
 
-                                    <td><img width="50px" height="50px" src="{{ config('app.url') . $Product->image }}" alt="image"></td>
+                                    <td><img width="50px" height="50px"
+                                            src="{{ config('app.url') . $Product->image }}" alt="image"></td>
 
-                                    <td><img width="50px" height="50px" src="{{ config('app.url') . $Product->thumbnail }}" alt="image"></td>
+                                    <td><img width="50px" height="50px"
+                                            src="{{ config('app.url') . $Product->thumbnail }}" alt="image"></td>
                                     <td>{{ $Product->created_at->format('d-m-y') }}</td>
 
                                     <td>

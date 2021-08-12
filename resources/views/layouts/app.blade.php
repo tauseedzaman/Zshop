@@ -161,7 +161,8 @@
         </div><!-- / .container -->
     </nav>
 </section>
-            {{  $slot }}
+
+@yield('content')
 <footer class="footer section text-center">
     <div class="container">
         <div class="row">

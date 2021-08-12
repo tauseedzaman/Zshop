@@ -14,8 +14,8 @@ class category extends Model
         'thumbnail',
     ];
 
-    public function product_category(){
-        return $this->hasMany(product_category::class);
+    public function products(){
+        return $this->hasMany(product::class);
     }
 
 }

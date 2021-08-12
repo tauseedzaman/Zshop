@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\category;
 use App\Models\product as productModel;
+use App\Models\product_category;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic;
@@ -24,6 +25,7 @@ class Product extends Component
     public $weight;
     public $stock;
     public $category;
+    public $price;
     public $image;
     public $edit_image;
     public $thumbnail;
@@ -44,26 +46,38 @@ class Product extends Component
                 'description' => 'required|max:255',
                 'stock' => 'required|numeric',
                 'weight' => 'required|numeric',
+                'price' => 'required|numeric',
                 'image' => 'required|image',
                 'category' => 'required',
                 'thumbnail' => 'required|image',
             ]);
 
-            productModel::create([
+            $product = productModel::create([
                 'name'        => $this->name,
+                'stock'       => $this->stock, 
                 'weight'        => $this->weight,
-                'sku' =>        "no sku",
-                'description' => $this->description,
+                'price'        => $this->price,
                 'thumbnail'  => $this->storeImage($this->thumbnail),
                 'image'  => $this->storeImage($this->image),
+                'sku' =>        "no sku",
+                'description' => $this->description,
                 'category_id' => $this->category,
             ]);
+            
+            product_category::create([
+                'product_id' => $product->id, 
+                'category_id' => $this->category, 
+            ]);
+
             $this->name="";
             $this->description="";
             $this->image="";
             $this->thumbnail="";
             $this->category="";
+            $this->price="";
+            $this->stock="";
             $this->weight="";
+
             session()->flash('message', 'Created successfully.');
         }
 
@@ -85,44 +99,65 @@ class Product extends Component
     {
         $product = productModel::findOrFail($id);
         $this->edit_product_id = $id;
-        $this->name = $product->name;
-        $this->description = $product->description;
-        $this->edit_image = $product->image;
+        $this->name           = $product->name;
+        $this->price          = $product->price;
+        $this->weight         = $product->weight;
+        $this->stock          = $product->stock;
+        $this->category       = $product->category_id;
+        $this->description    = $product->description;
+        $this->edit_image     = $product->image;
         $this->edit_thumbnail = $product->thumbnail;
-        $this->button_text="Update Product";
+        $this->button_text     ="Update Product";
     }
     public function update($id)
     {
         $this->validate([
             'name' => 'required|max:50',
             'description' => 'required|max:255',
+            'stock' => 'required|numeric',
+            'weight' => 'required|numeric',
+            'price' => 'required|numeric',
+            'category' => 'required',
         ]);
 
         $product = productModel::findOrFail($id);
         $product->name = $this->name;
         $product->description = $this->description;
-
+        $product->price = $this->price;
+        $product->weight = $this->weight;
+        $product->stock = $this->stock;
+        $product->category_id = $this->category;
+        
         if ($this->image) {
             $this->validate([
                 'image' => 'image|max:3072',
             ]);
-            unlink($product->thumbnail);
-            $product->thumbnail = $this->storeImage();
+            unlink($product->image);
+            $product->image = $this->storeImage($this->image);
 
         }
-        if ($this->image) {
+        if ($this->thumbnail) {
             $this->validate([
-                'image' => 'image|max:3072',
+                'thumbnail' => 'image|max:3072',
             ]);
             unlink($product->thumbnail);
-            $product->thumbnail = $this->storeImage();
+            $product->thumbnail = $this->storeImage($this->thumbnail);
 
         }
+
         $product->save();
-        $this->name="";
-        $this->description="";
-        $this->edit_image="";
-        $this->image="";
+
+            $this->name="";
+            $this->description="";
+            $this->image="";
+            $this->thumbnail="";
+            $this->category="";
+            $this->price="";
+            $this->stock="";
+            $this->weight="";;
+            $this->edit_image="";
+            $this->edit_thumbnail="";
+
         session()->flash('message', 'Updated Successfully.');
         $this->button_text = "Add New Product";
 
@@ -130,9 +165,23 @@ class Product extends Component
 
     public function delete($id)
     {
+        /*
+        * first delete category for this product
+        */
+        product_category::where('product_id' , $id)->delete();
+
+        /*
+        * now delete the product 
+        */
         $product = productModel::findOrFail($id);
-        unlink($product->thumbnail);
-        unlink($product->image);
+        
+        if($product->thumbnail){
+            unlink($product->thumbnail);
+        }
+        if ($product->image) {
+            unlink($product->image);
+        }   
+
         $product->delete();
         session()->flash('message', 'Deleted Successfully.');
     }
@@ -140,7 +189,7 @@ class Product extends Component
     public function render()
     {
         return view('livewire.admin.product',[
-            'products' => productModel::latest()->paginate(15),
+            'products' => productModel::latest()->paginate(3),
             'categories' => category::all()
         ])->layout('admin.layouts.wire_app');
     }

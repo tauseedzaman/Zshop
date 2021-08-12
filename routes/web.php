@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::view('/', 'welcome');
+Route::get('/', [\App\Http\Controllers\welcomeController::class,'welcome'] );
 Route::view('/thankYou','confirmation')->name('thanks_for_shoping');
 Route::view('/dashboard','user_dashboard')->name('user_dashboard');
 Route::view('/cart','cart')->name('cart');
