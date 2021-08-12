@@ -18,16 +18,16 @@ class Category extends Component
     public $description;
     public $thumbnail;
     public $edit_thumbnail;
-    public $edit_employee_id;
-    public $button_text = "Submit";
+    public $edit_category_id;
+    public $button_text = "Create Categroy";
 
 
 
     public function add_new_category()
     {
-        if ($this->edit_category_id) {
+        if ($this->edit_thumbnail) {
 
-            $this->update($this->edit_employee_id);
+            $this->update($this->edit_category_id);
 
         }else{
 
@@ -40,7 +40,7 @@ class Category extends Component
             \App\Models\category::create([
                 'name'          => $this->name,
                 'description'         => $this->description,
-                'thumbnail'        =>   $this->storeImage(),
+                'thumbnail'        =>   $this->storeImage($this->thumbnail),
 
             ]);
 
@@ -53,38 +53,44 @@ class Category extends Component
 
     }
 
-    public function storeImage()
+    public function storeImage($thumbnail)
     {
-        if (!$this->thumbnail) {
+        if (!$thumbnail) {
             return null;
         }
-        $image   = ImageManagerStatic::make($this->thumbnail)->encode('jpg');
-//        $img = $imag->resize(320, 240);
+        $image   = ImageManagerStatic::make($thumbnail)->encode('jpg');
         $name  = Str::random() . '.jpg';
         Storage::disk('public')->put($name, $image);
-        return config('app.url').'storage/'.$name;
+        return 'storage/'.$name;
     }
 
 
-
-    public function edit_category($id)
+    /*
+    * Edit Category by id
+    */
+    public function edit($id)
     {
         $category = \App\Models\category::findOrFail($id);
-        $this->edit_employee_id = $id;
+        $this->edit_category_id = $id;
 
         $this->name = $category->name;
         $this->description = $category->description;
         $this->edit_thumbnail    = $category->thumbnail;
 
-        $this->button_text="Update";
+        $this->button_text="Update Categroy";
     }
 
+    
+    /*
+    * Update Category by id
+    */
     public function update($id)
     {
         $this->validate([
-            'name' => 'required|min:4|max:50',
+            'name' => 'required|max:50',
             'description' => 'required',
         ]);
+        
         $category = \App\Models\category::findOrFail($id);
         $category->name = $this->name;
         $category->description = $this->description;
@@ -92,35 +98,44 @@ class Category extends Component
             $this->validate([
                 'thumbnail' => 'image',
             ]);
-            Storage::disk('public')->delete($category->thumbnail);
-            $category->thumbnail = $this->storeImage();
+               
+            if($category->thumbnail){
+                unlink($category->thumbnail);
+            }
+
+            $category->thumbnail = $this->storeImage($this->thumbnail);
         }
         $category->save();
 
         $this->name="";
         $this->description="";
         $this->thumbnail="";
+        $this->edit_thumbnail="";
         $this->edit_category_id="";
-        session()->flash('message', 'Cateogyr Updated Successfully.');
+        session()->flash('message', 'Cateogry Updated Successfully.');
 
-        $this->button_text = "Update";
+        $this->button_text = "Create Categroy";
 
     }
 
-    public function delete_category($id)
+    public function delete($id)
     {
-        \App\Models\category::findOrFail($id)->delete();
+        $category = \App\Models\category::findOrFail($id);
+        if($category->thumbnail){
+            unlink($category->thumbnail);
+        }
+        $category->delete();
         session()->flash('message', 'Category Deleted Successfully.');
 
         $this->name="";
         $this->description="";
         $this->thumbnail="";
     }
+
     public function render()
     {
         return view('livewire.admin.category',[
-            'categories' => \App\Models\category::latest()->paginate(10)
-        ]);
-//            ->layout('admin.layouts.l_app');
+            'categories' => \App\Models\category::latest()->paginate(3)
+        ])->layout('admin.layouts.wire_app');
     }
 }

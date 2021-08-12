@@ -21,13 +21,15 @@ Route::view('/privacy','privacy')->name('privacy');
 
 /*
  * Admin routes
- */
+//  
+
+*/
 Route::view('/admin/dashboard','admin.dashboard ')->name('admin.dashboard');
+Route::get('/admin/category',App\Http\Livewire\admin\Category::class)->name('admin.category');
 Route::get('/admin/products',App\Http\Livewire\Admin\Product::class)->name('admin.products');
-Route::view('/admin/category','admin.categories')->name('admin.category');
-Route::get('/admin/orders',App\Http\Livewire\Admin\Orders::class)->name('admin.orders');
-Route::get('/admin/contactMessages',App\Http\Livewire\Admin\ContactedMessages::class)->name('admin.messages');
-Route::get('/admin/clients',App\Http\Livewire\Admin\Clients::class)->name('admin.clients');
+// Route::get('/admin/orders',App\Http\Livewire\Admin\Orders::class)->name('admin.orders');
+// Route::get('/admin/contactMessages',App\Http\Livewire\Admin\ContactedMessages::class)->name('admin.messages');
+// Route::get('/admin/clients',App\Http\Livewire\Admin\Clients::class)->name('admin.clients');
 
 
 Route::get('/contact/developer',function (){

@@ -1,440 +1,222 @@
-<div class="card">
-    <div class="card-header">
-        <h3 class="card-title">DataTable with default features</h3>
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body">
-        <table id="example1" class="table table-bordered table-striped">
-            <thead>
-            <tr>
-                <th>Rendering engine</th>
-                <th>Browser</th>
-                <th>Platform(s)</th>
-                <th>Engine version</th>
-                <th>CSS grade</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>Trident</td>
-                <td>Internet
-                    Explorer 4.0
-                </td>
-                <td>Win 95+</td>
-                <td> 4</td>
-                <td>X</td>
-            </tr>
-            <tr>
-                <td>Trident</td>
-                <td>Internet
-                    Explorer 5.0
-                </td>
-                <td>Win 95+</td>
-                <td>5</td>
-                <td>C</td>
-            </tr>
-            <tr>
-                <td>Trident</td>
-                <td>Internet
-                    Explorer 5.5
-                </td>
-                <td>Win 95+</td>
-                <td>5.5</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Trident</td>
-                <td>Internet
-                    Explorer 6
-                </td>
-                <td>Win 98+</td>
-                <td>6</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Trident</td>
-                <td>Internet Explorer 7</td>
-                <td>Win XP SP2+</td>
-                <td>7</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Trident</td>
-                <td>AOL browser (AOL desktop)</td>
-                <td>Win XP</td>
-                <td>6</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Firefox 1.0</td>
-                <td>Win 98+ / OSX.2+</td>
-                <td>1.7</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Firefox 1.5</td>
-                <td>Win 98+ / OSX.2+</td>
-                <td>1.8</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Firefox 2.0</td>
-                <td>Win 98+ / OSX.2+</td>
-                <td>1.8</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Firefox 3.0</td>
-                <td>Win 2k+ / OSX.3+</td>
-                <td>1.9</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Camino 1.0</td>
-                <td>OSX.2+</td>
-                <td>1.8</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Camino 1.5</td>
-                <td>OSX.3+</td>
-                <td>1.8</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Netscape 7.2</td>
-                <td>Win 95+ / Mac OS 8.6-9.2</td>
-                <td>1.7</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Netscape Browser 8</td>
-                <td>Win 98SE+</td>
-                <td>1.7</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Netscape Navigator 9</td>
-                <td>Win 98+ / OSX.2+</td>
-                <td>1.8</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Mozilla 1.0</td>
-                <td>Win 95+ / OSX.1+</td>
-                <td>1</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Mozilla 1.1</td>
-                <td>Win 95+ / OSX.1+</td>
-                <td>1.1</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Mozilla 1.2</td>
-                <td>Win 95+ / OSX.1+</td>
-                <td>1.2</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Mozilla 1.3</td>
-                <td>Win 95+ / OSX.1+</td>
-                <td>1.3</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Mozilla 1.4</td>
-                <td>Win 95+ / OSX.1+</td>
-                <td>1.4</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Mozilla 1.5</td>
-                <td>Win 95+ / OSX.1+</td>
-                <td>1.5</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Mozilla 1.6</td>
-                <td>Win 95+ / OSX.1+</td>
-                <td>1.6</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Mozilla 1.7</td>
-                <td>Win 98+ / OSX.1+</td>
-                <td>1.7</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Mozilla 1.8</td>
-                <td>Win 98+ / OSX.1+</td>
-                <td>1.8</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Seamonkey 1.1</td>
-                <td>Win 98+ / OSX.2+</td>
-                <td>1.8</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Epiphany 2.20</td>
-                <td>Gnome</td>
-                <td>1.8</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Webkit</td>
-                <td>Safari 1.2</td>
-                <td>OSX.3</td>
-                <td>125.5</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Webkit</td>
-                <td>Safari 1.3</td>
-                <td>OSX.3</td>
-                <td>312.8</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Webkit</td>
-                <td>Safari 2.0</td>
-                <td>OSX.4+</td>
-                <td>419.3</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Webkit</td>
-                <td>Safari 3.0</td>
-                <td>OSX.4+</td>
-                <td>522.1</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Webkit</td>
-                <td>OmniWeb 5.5</td>
-                <td>OSX.4+</td>
-                <td>420</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Webkit</td>
-                <td>iPod Touch / iPhone</td>
-                <td>iPod</td>
-                <td>420.1</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Webkit</td>
-                <td>S60</td>
-                <td>S60</td>
-                <td>413</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Presto</td>
-                <td>Opera 7.0</td>
-                <td>Win 95+ / OSX.1+</td>
-                <td>-</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Presto</td>
-                <td>Opera 7.5</td>
-                <td>Win 95+ / OSX.2+</td>
-                <td>-</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Presto</td>
-                <td>Opera 8.0</td>
-                <td>Win 95+ / OSX.2+</td>
-                <td>-</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Presto</td>
-                <td>Opera 8.5</td>
-                <td>Win 95+ / OSX.2+</td>
-                <td>-</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Presto</td>
-                <td>Opera 9.0</td>
-                <td>Win 95+ / OSX.3+</td>
-                <td>-</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Presto</td>
-                <td>Opera 9.2</td>
-                <td>Win 88+ / OSX.3+</td>
-                <td>-</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Presto</td>
-                <td>Opera 9.5</td>
-                <td>Win 88+ / OSX.3+</td>
-                <td>-</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Presto</td>
-                <td>Opera for Wii</td>
-                <td>Wii</td>
-                <td>-</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Presto</td>
-                <td>Nokia N800</td>
-                <td>N800</td>
-                <td>-</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Presto</td>
-                <td>Nintendo DS browser</td>
-                <td>Nintendo DS</td>
-                <td>8.5</td>
-                <td>C/A<sup>1</sup></td>
-            </tr>
-            <tr>
-                <td>KHTML</td>
-                <td>Konqureror 3.1</td>
-                <td>KDE 3.1</td>
-                <td>3.1</td>
-                <td>C</td>
-            </tr>
-            <tr>
-                <td>KHTML</td>
-                <td>Konqureror 3.3</td>
-                <td>KDE 3.3</td>
-                <td>3.3</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>KHTML</td>
-                <td>Konqureror 3.5</td>
-                <td>KDE 3.5</td>
-                <td>3.5</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Tasman</td>
-                <td>Internet Explorer 4.5</td>
-                <td>Mac OS 8-9</td>
-                <td>-</td>
-                <td>X</td>
-            </tr>
-            <tr>
-                <td>Tasman</td>
-                <td>Internet Explorer 5.1</td>
-                <td>Mac OS 7.6-9</td>
-                <td>1</td>
-                <td>C</td>
-            </tr>
-            <tr>
-                <td>Tasman</td>
-                <td>Internet Explorer 5.2</td>
-                <td>Mac OS 8-X</td>
-                <td>1</td>
-                <td>C</td>
-            </tr>
-            <tr>
-                <td>Misc</td>
-                <td>NetFront 3.1</td>
-                <td>Embedded devices</td>
-                <td>-</td>
-                <td>C</td>
-            </tr>
-            <tr>
-                <td>Misc</td>
-                <td>NetFront 3.4</td>
-                <td>Embedded devices</td>
-                <td>-</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>Misc</td>
-                <td>Dillo 0.8</td>
-                <td>Embedded devices</td>
-                <td>-</td>
-                <td>X</td>
-            </tr>
-            <tr>
-                <td>Misc</td>
-                <td>Links</td>
-                <td>Text only</td>
-                <td>-</td>
-                <td>X</td>
-            </tr>
-            <tr>
-                <td>Misc</td>
-                <td>Lynx</td>
-                <td>Text only</td>
-                <td>-</td>
-                <td>X</td>
-            </tr>
-            <tr>
-                <td>Misc</td>
-                <td>IE Mobile</td>
-                <td>Windows Mobile 6</td>
-                <td>-</td>
-                <td>C</td>
-            </tr>
-            <tr>
-                <td>Misc</td>
-                <td>PSP browser</td>
-                <td>PSP</td>
-                <td>-</td>
-                <td>C</td>
-            </tr>
-            <tr>
-                <td>Other browsers</td>
-                <td>All others</td>
-                <td>-</td>
-                <td>-</td>
-                <td>U</td>
-            </tr>
-            </tbody>
-            <tfoot>
-            <tr>
-                <th>Rendering engine</th>
-                <th>Browser</th>
-                <th>Platform(s)</th>
-                <th>Engine version</th>
-                <th>CSS grade</th>
-            </tr>
-            </tfoot>
-        </table>
-    </div>
-    <!-- /.card-body -->
-</div>
-<!-- /.card -->
+<div id="layoutSidenav_content">
+    <main class="bg-light">
+        <div class="container-fluid px-4 ">
+            <h1 class="mt-4 bg-info shadow p-2 rounded">{{ config('app.name') . __(' Products') }}</h1>
+            <div class="row">
+                <div class="col mx-auto">
+                    @if (session()->has('message'))
+                        <div class="alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                    @endif
+                </div>
+            </div>
+            {{-- <form class="shadow rounded p-3" wire:submit.prevent="add_new_product">
+                <div class="text-capitalize bg-dark p-2 shadow mb-3 text-center text-lg text-light rounded" >{{ __('add new product') }}</div>
 
+                <div class="form-group">
+                    <label for="Name">{{ __("Name") }}</label>
+                    <input type="text" name="Name" wire:model.lazy="name"  placeholder="Enter Name" class="form-control" required />
+                    @error('name') <span class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="weight">{{ __('Weight') }}</label>
+                    <input type="text" name="weight" wire:model.lazy="weight"  placeholder="Enter product weight Kg\'s " class="form-control" required />
+                    @error('weight') <span class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="description">{{ __('Description') }}</label>
+                    <input type="text" name="description" wire:model.lazy="description"  placeholder="Enter Description" class="form-control" required />
+                </div>
+                @error('description') <span class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
+
+                <div class="form-group"  x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true" x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false"  x-on:livewire-upload-progress="progress = $event.detail.progress">
+                    <label for="image" class="form-control-label">{{ __("Product Image") }}</label>
+                    <div class="custom-file">
+                        <input type="file" name="image" wire:model="image" class="custom-file-input ">
+                        <label class="custom-file-label">{{ __("Choose Product Image") }}</label>
+                    </div>
+                    <div x-show="isUploading" style="width: 100%">
+                        <progress class="progress-bar" role="progressbar" max="100" aria-valuenow="progress" x-bind:value="progress"></progress>
+                    </div>
+                    @if ($image)
+                        <br>Preview:<br>
+                        <img width="20%" height="20%" src="{{ $image->temporaryUrl() }}">
+                    @endif
+                    @if ($edit_image)
+                        <br>Old Image Preview:<br>
+                        <img width="20%" height="20%" src="{{ config('app.url').$edit_image }}">
+                    @endif
+
+                    <div wire:loading wire:target="image">{{ __("Uploading") }}...</div><br>
+                    @error('image') <span class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
+                </div>
+
+                <div class="form-group"  x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true" x-on:livewire-upload-finish="isUploading = false" x-on:livewire-upload-error="isUploading = false"  x-on:livewire-upload-progress="progress = $event.detail.progress">
+                    <label for="thumbnail" class="form-control-label">{{ __("Product Thumbnail") }}</label>
+                    <div class="custom-file">
+                        <input type="file" name="thumbnail" wire:model="thumbnail" class="custom-file-input ">
+                        <label class="custom-file-label">{{ __("Choose Product Thumbnail") }}</label>
+                    </div>
+                    @if ($thumbnail)
+                        <br>Preview:<br>
+                        <img width="20%" height="20%" src="{{ $thumbnail->temporaryUrl() }}">
+                    @endif
+                    @if ($edit_thumbnail)
+                        <br>Old Photo Preview:<br>
+                        <img width="20%" height="20%" src="{{ config('app.url').$edit_thumbnail }}">
+                    @endif
+
+                    <div wire:loading wire:target="thumbnail">{{ __("Uploading") }}...</div><br>
+                    @error('thumbnail') <span class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="category">{{ __("Category") }}</label>
+                    <select name="category" wire:model.lazy="category" class="form-control" required>
+                        <option selected> -- Choose Category -- </option>
+                        @forelse ($products as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @empty
+                            <option value="" class="text-warning">{{ __("No head Found!") }}</option>
+                        @endforelse
+
+                    </select>
+                    @error('category') <span class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="stock">{{ __('Stock') }}</label>
+                    <input type="number" name="stock" wire:model="stock"  placeholder="Enter Product Stock " class="form-control" required />
+                    @error('stock') <span class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="{{ $button_text }}">
+                </div>
+
+            </form> --}}
+            <form class=" p-2 shadow bg-light rounded my-4 " wire:submit.prevent="add_new_product">
+                <h2 class="text-success shadow p-3 bg-success text-light border border-success">Create New Porduct</h2>
+
+                <div class="row mb-3">
+
+                    <div class="col-12 mx-auto">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input class="form-control @error('name') is-invalid @enderror" wire:model.lazy="name"
+                                id="p_name" type="text" placeholder="Enter Product Name" />
+                            <label for="p_name">Product Name</label>
+                        </div>
+                        @error('name') <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="col-12 mx-auto my-3">
+                        <div class="form-floating">
+                            <textarea class="form-control @error('description') is-invalid @enderror "
+                                wire:model.lazy="description" name="description" placeholder="Product Description"
+                                id="description" cols="30" rows="10"></textarea>
+                            <label for="description">Product Description</label>
+                        </div>
+                        @error('description') <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
+                        @enderror
+
+                    </div>
+                </div>
+                <div class="col mx-auto">
+                    <div class="form-group">
+                        <label for="Thumbnail">Choose Product Thumbnail</label>
+                        <div class="input-grou  p">
+                            <div class="custom-file">
+                                <input type="file" class="form-control" wire:model.lazy="thumbnail" id="Thumbnail">
+                                @error('thumbnail') <span
+                                    class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
+                                @if ($thumbnail)
+                                    <br>Preview:<br>
+                                    <img width="25%" height="25%" src="{{ $thumbnail->temporaryUrl() }}">
+                                @endif
+                                @if ($edit_thumbnail)
+                                    <br>Old Photo Preview:<br>
+                                    <img width="40%" height="40%" src="{{ config('app.url') . $edit_thumbnail }}">
+                                @endif
+
+                                <div wire:loading wire:target="photo">Uploading...</div><br>
+                                @error('photo') <span
+                                    class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 mb-0">
+                    <div class="d-grid"><button class="btn btn-success btn-block btn-lg">{{ $button_text }}</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="row mt-4 shadow rounded p-3">
+                <div class="col mx-auto">
+                    <h2 class="text-success rounded text-center shadow p-3 bg-info text-light border border-success">All
+                        Products</h2>
+                    <table class="table table-all table-hoverable">
+                        <thead>
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>Name</th>
+                                <th>Weight</th>
+                                <th>Stock</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Image</th>
+                                <th>Thumbnail</th>
+                                <th>Created_at</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($products as $Product)
+                                <tr>
+                                    <td>{{ $Product->id }}</td>
+                                    <td>{{ $Product->name }}</td>
+                                    <td>{{ $Product->weight }}</td>
+                                    <td>{{ $Product->stock }}</td>
+                                    <td>{{ $Product->description }}</td>
+                                    <td>{{ $Product->category_id }}</td>
+
+                                    <td><img width="50px" height="50px" src="{{ config('app.url') . $Product->image }}" alt="image"></td>
+
+                                    <td><img width="50px" height="50px" src="{{ config('app.url') . $Product->thumbnail }}" alt="image"></td>
+                                    <td>{{ $Product->created_at->format('d-m-y') }}</td>
+
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-sm btn-warning" title="edit this row"
+                                                wire:click="edit({{ $Product->id }})">Edit</button>
+                                            <button class="btn btn-sm btn-danger" title="delete this row"
+                                                onclick="return confirm('{{ __('Are You Sure ?') }}')"
+                                                wire:click="delete({{ $Product->id }})">Delete</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td class="text-warning">{{ __('Null') }}</td>
+                                    <td class="text-warning">{{ __('Null') }}</td>
+                                    <td class="text-warning">{{ __('Null') }}</td>
+                                    <td class="text-warning">{{ __('Null') }}</td>
+                                    <td class="text-warning">{{ __('Null') }}</td>
+                                    <td class="text-warning">{{ __('Null') }}</td>
+                                    <td class="text-warning">{{ __('Null') }}</td>
+                                    <td class="text-warning">{{ __('Null') }}</td>
+                                    <td class="text-warning">{{ __('Null') }}</td>
+                                    <td class="text-warning">{{ __('Null') }}</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+
+                    {{ $products->links() }}
+                </div>
+            </div>
+            <br>
