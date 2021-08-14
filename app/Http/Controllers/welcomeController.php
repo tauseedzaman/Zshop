@@ -12,4 +12,8 @@ class welcomeController extends Controller
             'categories' => category::all()
         ]);
     }
+    public function show_category_products($id)
+    {
+        $products
+    }
 }

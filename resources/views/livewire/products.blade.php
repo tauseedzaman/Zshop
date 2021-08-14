@@ -10,8 +10,11 @@
                             <i class="tf-ion-ios-search-strong"></i>
                         </span>
                     </li>
-                    <li>
-                        <a ><i wire:click="product_liked({{ $product->id }})" class="tf-ion-ios-heart"></i></a>
+                    <li wire:click="product_liked({{ $product->id }})">
+                        <span >
+                            <i class="tf-ion-ios-heart"></i>
+                        </span>
+                        {{-- <a><i  class="tf-ion-ios-heart"></i></a> --}}
                     </li>
                     <li>
                         <a href="#!"><i class="tf-ion-android-cart"></i></a>
@@ -25,7 +28,6 @@
         </div>
     </div>
 </div>
-{{ $products->links() }}
 @empty
     <h1>{{ __("no product found!") }}</h1>    
 @endforelse

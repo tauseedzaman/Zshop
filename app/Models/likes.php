@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class likes extends Model
 {
     use HasFactory;
+    protected $fillable =[
+        'user_id',
+        'product_id',
+    ];
 }
