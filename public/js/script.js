@@ -8,7 +8,12 @@
     });
   });
 
-  
+$(document).on('click','#productId',()=>{
+  // let id = $(this).data('pid');
+  let id = $(this).val();
+  // console.log($(this));
+  alert(id);
+});  
   // Instagram Feed
   if (($('#instafeed').length) !== 0) {
     var accessToken = $('#instafeed').attr('data-accessToken');

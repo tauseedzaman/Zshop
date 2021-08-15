@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-md-4 col-xs-12 col-sm-4">
                     <ul class="top-menu text-right list-inline">
-                        <li class="dropdown cart-nav dropdown-slide">
+                        <li class="dropdown cart-nav dropdown-slide">   
                             <a href="{{ route('cart') }}" class="dropdown-toggle" data-toggle="dropdown"
                                 data-hover="dropdown"><i class="tf-ion-android-cart"></i>Cart</a>
                             <div class="dropdown-menu cart-dropdown">
@@ -74,7 +74,9 @@
                                     class="tf-ion-ios-search-strong"></i> Search</a>
                             <ul class="dropdown-menu search-dropdown">
                                 <li>
-                                    <form action="post"><input type="search" class="form-control"
+                                    <form action="get" action="">
+                                        @csrf
+                                        <input type="search" name="item" class="form-control"
                                             placeholder="Search..."></form>
                                 </li>
                             </ul>

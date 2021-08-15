@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [\App\Http\Controllers\welcomeController::class,'welcome'] );
-Route::get('/category/{id}',[\App\Http\Controllers\welcomeController::class,'show_category_products'])->name('show_category_products');
+Route::get('/search/{item}',[\App\Http\Controllers\welcomeController::class,'show_searched_items'])->name('show_searched_items');
+Route::get('/category/{id}',[\App\Http\Controllers\welcomeController::class,'show_searched_item_by_category'])->name('show_searched_item_by_category');
+Route::get('/product/{name}',[\App\Http\Controllers\welcomeController::class,'show_searched_item_by_name'])->name('show_searched_item_by_name');
 Route::view('/thankYou','confirmation')->name('thanks_for_shoping');
 Route::view('/dashboard','user_dashboard')->name('user_dashboard');
 Route::view('/cart','cart')->name('cart');
@@ -33,6 +35,13 @@ Route::middleware(['auth','checksuperadmin'])->group(function () {
         // Route::get('/admin/clients',App\Http\Livewire\Admin\Clients::class)->name('admin.clients');
     });
 });
+
+Route::middleware(['auth'])->group(function () {
+        Route::get('/like/{id}',[\App\Http\Controllers\productLikeController::class,'like'])->name('like-product');
+        Route::get('/add_to_cart/{id}',[\App\Http\Controllers\cartController::class,'store'])->name('add_product_to_cart');
+});
+
+
 
 
 Route::get('/contact/developer',function (){
