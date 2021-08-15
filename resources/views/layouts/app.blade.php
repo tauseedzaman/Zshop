@@ -55,18 +55,19 @@
                 </div>
                 <div class="col-md-4 col-xs-12 col-sm-4">
                     <ul class="top-menu text-right list-inline">
-                        <li class="dropdown cart-nav dropdown-slide">   
-                            <a href="{{ route('cart') }}" class="dropdown-toggle" data-toggle="dropdown"
-                                data-hover="dropdown"><i class="tf-ion-android-cart"></i>Cart</a>
-                            <div class="dropdown-menu cart-dropdown">
-                                @livewire('menu-cart')
-                                <ul class="text-center cart-buttons">
-                                    <li><a href="cart.html" class="btn btn-small">View Cart</a></li>
-                                    <li><a href="checkout.html" class="btn btn-small btn-solid-border">Checkout</a></li>
-                                </ul>
-                            </div>
-
-                        </li><!-- / Cart -->
+                        @auth
+                            <li class="dropdown cart-nav dropdown-slide">   
+                                <a href="{{ route('cart') }}" class="dropdown-toggle" data-toggle="dropdown"
+                                    data-hover="dropdown"><i class="tf-ion-android-cart"></i>Cart</a>
+                                <div class="dropdown-menu cart-dropdown">
+                                    @livewire('menu-cart')
+                                    <ul class="text-center cart-buttons">
+                                        <li><a href="{{ route('cart') }}" class="btn btn-small">View Cart</a></li>
+                                        <li><a href="checkout.html" class="btn btn-small btn-solid-border">Checkout</a></li>
+                                    </ul>
+                                </div>
+                            </li><!-- / Cart -->
+                        @endauth
 
                         <!-- Search -->
                         <li class="dropdown search dropdown-slide">
@@ -127,10 +128,10 @@
                         <li class="dropdown ">
                             <a href="{{ route('blog') }}">Blog</a>
                         </li>
+                        @auth()
                         <li class="dropdown ">
                             <a href="{{ route('user_dashboard') }}">Dashboard</a>
                         </li>
-                        @auth()
                             <li class="dropdown ">
                                 <a href="{{ route('cart') }}"> My Cart</a>
                             </li>

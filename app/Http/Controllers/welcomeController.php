@@ -33,7 +33,7 @@ class welcomeController extends Controller
     
     public function show_searched_item_by_name($name)
     {
-        $products = product::where('name',$name)->orWhere('description','LIKE','%',$name.'%')->latest()->paginate(9);
+        $products = product::where('name',$name)->orWhere('description','LIKE','%',$name.'%')->latest()->paginate(9 );
         return view('search',[
             'products' => $products,
             'searchItem' => $name

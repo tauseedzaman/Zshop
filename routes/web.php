@@ -9,21 +9,19 @@ Route::get('/category/{id}',[\App\Http\Controllers\welcomeController::class,'sho
 Route::get('/product/{name}',[\App\Http\Controllers\welcomeController::class,'show_searched_item_by_name'])->name('show_searched_item_by_name');
 Route::view('/thankYou','confirmation')->name('thanks_for_shoping');
 Route::view('/dashboard','user_dashboard')->name('user_dashboard');
-Route::view('/cart','cart')->name('cart');
-Route::view('/blog','blog')->name('blog');
+    Route::view('/blog','blog')->name('blog');
 Route::view('/addresses','addresses')->name('addresses');
 Route::view('/order','orders')->name('order');
 Route::view('/shop','shop')->name('shop');
 Route::view('/checkout','checkout')->name('checkout');
 Route::view('/about-us','about')->name('about_us');
-Route::view('/profile','profile')->name('user_profile');
 Route::view('/contact-us','contact_us')->name('contact_us');
 Route::view('/faq','faq')->name('faq');
 Route::view('/privacy','privacy')->name('privacy');
 
 
 /*
- * Admin routes
+* Admin routes
 */
 Route::middleware(['auth','checksuperadmin'])->group(function () {
     Route::prefix('admin')->group(function () {
@@ -37,8 +35,10 @@ Route::middleware(['auth','checksuperadmin'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-        Route::get('/like/{id}',[\App\Http\Controllers\productLikeController::class,'like'])->name('like-product');
-        Route::get('/add_to_cart/{id}',[\App\Http\Controllers\cartController::class,'store'])->name('add_product_to_cart');
+    Route::get('/like/{id}',[\App\Http\Controllers\productLikeController::class,'like'])->name('like-product');
+    Route::get('/add_to_cart/{id}',[\App\Http\Controllers\cartController::class,'store'])->name('add_product_to_cart');
+    Route::view('/MyProfile','profile')->name('user_profile');
+    Route::view('/MyCart','cart')->name('cart');
 });
 
 

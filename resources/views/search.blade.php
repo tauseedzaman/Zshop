@@ -22,13 +22,10 @@
                                         </a>
                                     </li>
                                     <li >
-                                        <span >
-                                            <i class="tf-ion-ios-heart"></i>
-                                        </span>
-                                        {{-- <a><i  class="tf-ion-ios-heart"></i></a> --}}
+                                        <a href="{{ route('like-product',$product->id) }}"><i class="tf-ion-ios-heart"></i> </a>
                                     </li>
                                     <li>
-                                        <a href="#!"><i class="tf-ion-android-cart"></i></a>
+                                        <a href="{{ route('add_product_to_cart',$product->id) }}"><i class="tf-ion-android-cart"></i></a>
                                     </li>
                                 </ul>
                             </div>
