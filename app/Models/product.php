@@ -27,9 +27,9 @@ class product extends Model
         return $this->belongsTo(category::class);
     }
 
-    // public function product_category(){
-    //     return $this->belongsTo(product_category::class);
-    // }
+    public function likes(){
+        return $this->belongsTo(likes::class);
+    }
 
     public function order_details(){
         return $this->hasMany(order_details::class);

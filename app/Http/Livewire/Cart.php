@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Cart extends Component
 {
-    public function delete($id)
+    public function deleteThis($id)
     {
         dd("you are here");
         cartModel::find($id)->delete();

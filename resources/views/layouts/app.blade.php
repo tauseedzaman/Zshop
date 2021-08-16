@@ -18,9 +18,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     @livewireStyles
     @livewireScripts
 </head>
@@ -63,7 +63,7 @@
                                     @livewire('menu-cart')
                                     <ul class="text-center cart-buttons">
                                         <li><a href="{{ route('cart') }}" class="btn btn-small">View Cart</a></li>
-                                        <li><a href="checkout.html" class="btn btn-small btn-solid-border">Checkout</a></li>
+                                        <li><a href="{{ route('checkout') }}" class="btn btn-small btn-solid-border">Checkout</a></li>
                                     </ul>
                                 </div>
                             </li><!-- / Cart -->

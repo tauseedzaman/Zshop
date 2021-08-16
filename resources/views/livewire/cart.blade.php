@@ -44,7 +44,7 @@
                                                 </td>
                                                 <td class="">${{ $product->product->price ? $product->product->price : '00'  }}.00</td>
                                                 <td class="">
-                                                    <button type="button" class="btn product-remove" wire:click="delete({{ $product->id }})" style="cursor: pointer">Remove</button>
+                                                    <button type="button" class="btn product-remove" wire:click="deleteThis({{ $product->id }})" style="cursor: pointer">Remove</button>
                                                 </td>
                                             </tr>
                                             
@@ -58,7 +58,7 @@
                                         </tbody>
                                     </table>
                                     {{-- i am still conpuse in this logic --}}
-                                    <a href="{{ route('checkout') }}" class="btn btn-main pull-right " @if($products->count() < 0) disabled="" @endif >Checkout</a>
+                                    <a href="{{ route('checkout') }}" class="btn btn-main pull-right " @if($products->count() <= 0) disabled="" @endif >Checkout</a>
                                 </form>
                             </div>
                         </div>

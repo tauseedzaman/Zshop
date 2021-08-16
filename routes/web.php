@@ -19,6 +19,8 @@ Route::view('/contact-us','contact_us')->name('contact_us');
 Route::view('/faq','faq')->name('faq');
 Route::view('/privacy','privacy')->name('privacy');
 
+Route::get('/show_product/{id}',[\App\Http\Controllers\welcomeController::class,'show_single_product'])->name('single_product');
+
 
 /*
 * Admin routes
