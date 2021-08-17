@@ -13,7 +13,6 @@
                     <li >
                         <span id="productId"  value="{{ $product->id }}" data-pid="{{ $product->id }}"><i  class="tf-ion-ios-heart"></i>
                         </span>
-                        {{-- <a href="{{ route('like-product',$product->id) }}" </a> --}}
                     </li>
                     <li>
                         <a href="{{ route('add_product_to_cart',$product->id) }}"><i class="tf-ion-android-cart"></i></a>
@@ -22,7 +21,7 @@
             </div>
         </div>
         <div class="product-content">
-            <h4><a href="product/{{ $product->id }}">{{ $product->name }}</a></h4>
+            <h4><a href="{{ route('single_product',$product->id)}}" >{{ $product->name }}</a></h4>
             <p class="price">${{ $product->price }}</p>
         </div>
     </div>
