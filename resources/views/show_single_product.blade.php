@@ -63,19 +63,20 @@
                                 <img class="img-responsive" src="{{ config('app.url') . $product->image }}" alt="">
                             </div>
                             <br>
-                            <a href="{{ route('like-product',$product->id) }}" style="color:blueviolet" title="like this product">Like This</a>
+                            <a href="{{ route('like-product', $product->id) }}" style="color:blueviolet"
+                                title="like this product">Like This</a>
                         </div>
                         <div class="post-social-share">
                             <h3 class="post-sub-heading">Share this post</h3>
                             <div class="social-media-icons">
                                 <ul>
-                                    <li><a class="facebook" href="https://facebook.com/"><i
+                                    <li><a class="facebook" href="{{ env('MY_FACEBOOK') }}"><i
                                                 class="tf-ion-social-facebook"></i></a></li>
-                                    <li><a class="twitter" href="https://twittor.com/"><i
+                                    <li><a class="twitter" href="{{ env('MY_TWITTER') }}"><i
                                                 class="tf-ion-social-twitter"></i></a></li>
-                                    <li><a class="instagram" href="https://instagram.com/"><i
+                                    <li><a class="instagram" href="{{ env('MY_INSTA') }}"><i
                                                 class="tf-ion-social-instagram"></i></a></li>
-                                    <li><a class="googleplus" href="https://googleplus.com/"><i
+                                    <li><a class="googleplus" href="{{ env('MY_GOOGLEPLUS') }}"><i
                                                 class="tf-ion-social-googleplus"></i></a></li>
                                 </ul>
                             </div>

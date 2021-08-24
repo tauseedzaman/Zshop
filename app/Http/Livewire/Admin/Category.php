@@ -12,8 +12,8 @@ use Livewire\WithFileUploads;
 class Category extends Component
 {
     use WithFileUploads;
-    use WithPagination;
-    protected $paginationTheme = 'bootstrap';
+        use WithPagination;
+        protected $paginationTheme = 'bootstrap';
     public $name;
     public $description;
     public $thumbnail;

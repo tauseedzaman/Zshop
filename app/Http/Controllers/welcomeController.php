@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\category;
+use App\Models\faq;
 use App\Models\product;
 use Illuminate\Http\Request;
 
@@ -38,7 +39,21 @@ class welcomeController extends Controller
             'searchItem' => $id
         ]);
     }  
-    
+
+    /*
+    * show FAQ's 
+    */
+    public function faq()
+    {
+        return view('faq',[
+            'faqs' => faq::latest()->get()
+        ]);
+    }
+
+
+    /*
+    *Search product by name
+    */
     public function show_searched_item_by_name($name)
     {
         $products = product::where('name',$name)->orWhere('description','LIKE','%',$name.'%')->latest()->paginate(9 );

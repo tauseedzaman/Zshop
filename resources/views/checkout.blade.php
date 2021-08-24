@@ -9,7 +9,7 @@
                     <h1 class="page-name">Checkout</h1>
                     <ol class="breadcrumb">
                         <li><a href="{{ url('/') }}">Home</a></li>
-                        <li class="active">checkout</li>
+                        <li class="active">{{ __("checkout") }}</li>
                     </ol>
                 </div>
             </div>

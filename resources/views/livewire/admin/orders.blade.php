@@ -21,8 +21,9 @@
                             <th style="width: 10px">#</th>
                             <th>Client</th>
                             <th>Address</th>
-                            <th>Phone</th>
+                            <th>Email</th>
                             <th>Product</th>
+                            <th>Status</th>
                             <th>Created_at</th>
                             <th>Actions</th>
                         </tr>
@@ -31,12 +32,22 @@
                         @forelse($orders as $order)
                             <tr>
                                 <td>{{ $order->id }}</td>
-                                <td>{{ $order->id }}</td>
-                                <td>{{ $order->id }}</td>
+                                <td><a href="{{ route('admin.user_details',$order->user_id) }}" class="nav-link">{{ $order->user->full_name }}</a></td>
+                                <td>{{ $order->shipping_address }}</td>
+                                <td>{{ $order->order_email }}</td>
+                                @foreach ($order->details as $pro)
+                                  <td><a href="{{ route('single_product',$pro->product_id) }}">{{ $pro->product_id }}</a></td>
+                                @endforeach
+                                <td><span class="bg-info p-1 ">{{ $order->order_status }}</span></td>
                                 <td>{{ $order->created_at->format('d-m-y') }}</td>
                                 <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-sm btn-warning" title="edit this row" wire:click="edit({{$order->id}})">Edit</button>
+                                    {{-- <div class="btn-group">
+                                        <select name="status" wre:model="status" id="">
+                                            <option value="" selected>Status</option>
+                                            <option value="1">Porcessing</option>
+                                            <option value="2">completed</option>
+                                            <option value="3">Canncel</option>
+                                        </select> --}}
                                         <button class="btn btn-sm btn-danger" title="delete this row" onclick="return confirm('{{ __('Are You Sure ?')  }}')" wire:click="delete({{$order->id}})">Delete</button>
                                     </div>
                                 </td>

@@ -6,6 +6,15 @@ use Livewire\Component;
 
 class Orders extends Component
 {
+
+    public function delete($id)
+    {
+        orderModel::find($id)->delete();
+    }
+
+
+
+
     public function render()
     {
         return view('livewire.admin.orders',[

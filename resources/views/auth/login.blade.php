@@ -7,8 +7,8 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="block text-center">
-                        <a class="logo" href="index.html">
-                            <img src="images/logo.png" alt="">
+                        <a class="logo" href="{{ url('/') }}">
+                            <h1 class="text-success text-bolder shadow rounded">{{ config('app.name') }} </h1>
                         </a>
                         <h2 class="text-center">Welcome Back</h2>
                         <form class="text-left clearfix"  method="POST" action="{{ route('login') }}" >

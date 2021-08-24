@@ -56,21 +56,22 @@
                 <div class="col-md-4 col-xs-12 col-sm-4">
                     <ul class="top-menu text-right list-inline">
                         @auth
-                            <li class="dropdown cart-nav dropdown-slide">   
+                            <li class="dropdown cart-nav dropdown-slide">
                                 <a href="{{ route('cart') }}" class="dropdown-toggle" data-toggle="dropdown"
-                                    data-hover="dropdown"><i class="tf-ion-android-cart"></i>{{ __("Cart") }}</a>
+                                    data-hover="dropdown"><i class="tf-ion-android-cart"></i>{{ __('Cart') }}</a>
                                 <div class="dropdown-menu cart-dropdown">
                                     @livewire('menu-cart')
                                     <ul class="text-center cart-buttons">
                                         <li><a href="{{ route('cart') }}" class="btn btn-small">View Cart</a></li>
-                                        <li><a href="{{ route('checkout') }}" class="btn btn-small btn-solid-border">Checkout</a></li>
+                                        <li><a href="{{ route('checkout') }}"
+                                                class="btn btn-small btn-solid-border">Checkout</a></li>
                                     </ul>
                                 </div>
                             </li><!-- / Cart -->
                         @endauth
 
                         <!-- Search -->
-                      @livewire('menu-search-bar')
+                        @livewire('menu-search-bar')
 
                         <!-- Languages -->
                         <li class="commonSelect">
@@ -114,13 +115,10 @@
                         <li class="dropdown ">
                             <a href="{{ route('shop') }}">Shop</a>
                         </li>
-                        <li class="dropdown ">
-                            <a href="{{ route('blog') }}">Blog</a>
-                        </li>
                         @auth()
-                        <li class="dropdown ">
-                            <a href="{{ route('user_dashboard') }}">Dashboard</a>
-                        </li>
+                            <li class="dropdown ">
+                                <a href="{{ route('user_profile') }}">Dashboard</a>
+                            </li>
                             <li class="dropdown ">
                                 <a href="{{ route('cart') }}"> My Cart</a>
                             </li>
@@ -140,7 +138,7 @@
                             </li>
                         @endguest
                         @auth()
-                        {{-- {{ dd(auth()->user()) }} --}}
+                            {{-- {{ dd(auth()->user()) }} --}}
                             @if (auth()->user()->isAdmin)
                                 <li class="dropdown ">
                                     <a href="{{ route('admin.dashboard') }}">Admin</a>
@@ -219,7 +217,6 @@
     <script src="{{ asset('plugins/syo-timer/build/jquery.syotimer.min.js') }}"></script>
     <script src="{{ asset('plugins/slick/slick.min.js') }}"></script>
     <script src="{{ asset('plugins/slick/slick-animation.min.js') }}"></script>
-    {{-- <script type="text/javascript" src="{{ asset('plugins/google-map/gmap.js') }}"></script> --}}
     <script src="{{ asset('js/script.js') }}"></script>
 
 </body>

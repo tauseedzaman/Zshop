@@ -59,7 +59,6 @@ class Product extends Component
                 'price'        => $this->price,
                 'thumbnail'  => $this->storeImage($this->thumbnail),
                 'image'  => $this->storeImage($this->image),
-                'sku' =>        "no sku",
                 'description' => $this->description,
                 'category_id' => $this->category,
             ]);
@@ -89,7 +88,6 @@ class Product extends Component
             return null;
         }
         $image   = ImageManagerStatic::make($img)->encode('jpg');
-//        $img = $imag->resize(320, 240);
         $name  = Str::random() . '.jpg';
         Storage::disk('public')->put($name, $image);
         return 'storage/'.$name;
@@ -165,14 +163,7 @@ class Product extends Component
 
     public function delete($id)
     {
-        /*
-        * first delete category for this product
-        */
         product_category::where('product_id' , $id)->delete();
-
-        /*
-        * now delete the product 
-        */
         $product = productModel::findOrFail($id);
         
         if($product->thumbnail){

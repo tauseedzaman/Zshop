@@ -17,12 +17,8 @@ class product extends Model
         'image',
         'description',
         'category_id',
-        'sku',
     ];
 
-    public function product_option(){
-        return $this->belongsTo(product_option::class);
-    }
     public function category(){
         return $this->belongsTo(category::class);
     }

@@ -13,7 +13,7 @@
             </div>
          
             <form class=" p-2 shadow bg-light rounded my-4 " wire:submit.prevent="add_new_product">
-                <h2 class="text-success shadow p-3 bg-success text-light border rounded border-success">Create New Porduct</h2>
+                <h2 class="text-success shadow p-3 bg-success text-light border rounded border-success">{{ __("Create New Porduct") }}</h2>
 
                 <div class="row mb-3">
 
@@ -21,7 +21,7 @@
                         <div class="form-floating mb-3 mb-md-0">
                             <input class="form-control @error('name') is-invalid @enderror" wire:model.lazy="name"
                                 id="p_name" type="text" placeholder="Enter Product Name" />
-                            <label for="p_name">Product Name</label>
+                            <label for="p_name">{{ __("Product Name") }}</label>
                         </div>
                         @error('name') <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
                         @enderror
@@ -31,7 +31,7 @@
                         <div class="form-floating mb-3 mb-md-0">
                             <input class="form-control @error('Weight') is-invalid @enderror" wire:model.lazy="weight"
                                 id="Weight" type="number" placeholder="Enter Product Weight" />
-                            <label for="p_name">Product Weight <small class="text-success">kg's</small></label>
+                            <label for="p_name">{{ __("Product Weight") }} <small class="text-success">kg's</small></label>
                         </div>
                         @error('weight') <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
                         @enderror
@@ -41,7 +41,7 @@
                         <div class="form-floating mb-3 mb-md-0">
                             <input class="form-control @error('price') is-invalid @enderror" wire:model.lazy="price"
                                 id="price" type="number" placeholder="Enter Product Price" />
-                            <label for="price">Product Price</label>
+                            <label for="price">{{ __("Product Price") }}</label>
                         </div>
                         @error('price') <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
                         @enderror
@@ -51,7 +51,7 @@
                         <div class="form-floating mb-3 mb-md-0">
                             <input class="form-control @error('Stock') is-invalid @enderror" wire:model.lazy="stock"
                                 id="Stock" type="number" placeholder="Enter Product Stock" />
-                            <label for="Stock">Product Stock</label>
+                            <label for="Stock">{{ __("Product Stock") }}</label>
                         </div>
                         @error('stock') <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
                         @enderror
@@ -62,7 +62,7 @@
                             <textarea class="form-control @error('description') is-invalid @enderror "
                                 wire:model.lazy="description" name="description" placeholder="Product Description"
                                 id="description" cols="30" rows="10"></textarea>
-                            <label for="description">Product Description</label>
+                            <label for="description">{{ __("Product Description") }}</label>
                         </div>
                         @error('description') <span class="text-red-500 text-danger text-xs">{{ $message }}</span>
                         @enderror
@@ -85,7 +85,7 @@
 
                 <div class="col mx-auto">
                     <div class="form-group">
-                        <label for="Thumbnail">Choose Product Thumbnail</label>
+                        <label for="Thumbnail">{{ __("Choose Product Thumbnail") }}</label>
                         <div class="input-grou p">
                             <div class="custom-file">
                                 <input type="file" class="form-control" wire:model.lazy="thumbnail" id="Thumbnail">
@@ -93,11 +93,11 @@
                                     class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
                                     <div wire:loading wire:target="thumbnail">Uploading...</div><br>
                                     @if ($thumbnail)
-                                    <br>Preview:<br>
+                                    <br>{{ __("Preview") }}:<br>
                                     <img width="25%" height="25%" src="{{ $thumbnail->temporaryUrl() }}">
                                 @endif
                                 @if ($edit_thumbnail)
-                                    <br>Old Photo Preview:<br>
+                                    <br>{{ __("Old Photo Preview") }}:<br>
                                     <img width="40%" height="40%" src="{{ config('app.url') . $edit_thumbnail }}">
                                 @endif
                             </div>
@@ -107,7 +107,7 @@
                 
                 <div class="col mx-auto">
                     <div class="form-group">
-                        <label for="Thumbnail">Choose Product Image</label>
+                        <label for="Thumbnail">{{ __("Choose Product Image") }}</label>
                         <div class="input-grou p">
                             <div class="custom-file">
                                 <input type="file" class="form-control" wire:model.lazy="image" id="image">
@@ -115,11 +115,11 @@
                                     class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
                                     <div wire:loading wire:target="image">Uploading...</div><br>
                                     @if ($image)
-                                    <br>Preview:<br>
+                                    <br>{{ __("Preview") }}:<br>
                                     <img width="25%" height="25%" src="{{ $image->temporaryUrl() }}">
                                 @endif
                                 @if ($edit_image)
-                                    <br>Old image Preview:<br>
+                                    <br>{{ __("Old image Preview") }}:<br>
                                     <img width="40%" height="40%" src="{{ config('app.url') . $edit_image }}">
                                 @endif
                             </div>
@@ -152,15 +152,15 @@
                         <thead>
                             <tr>
                                 <th style="width: 10px">#</th>
-                                <th>Name</th>
-                                <th>Weight</th>
-                                <th>Stock</th>
-                                <th>Description</th>
-                                <th>Category</th>
-                                <th>Image</th>
-                                <th>Thumbnail</th>
-                                <th>Created_at</th>
-                                <th>Actions</th>
+                                <th>{{ __("Name") }}</th>
+                                <th>{{ __("Weight") }}</th>
+                                <th>{{ __("Stock") }}</th>
+                                <th>{{ __("Description") }}</th>
+                                <th>{{ __("Category") }}</th>
+                                <th>{{ __("Image") }}</th>
+                                <th>{{ __("Thumbnail") }}</th>
+                                <th>{{ __("Created_at") }}</th>
+                                <th>{{ __("Actions") }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -183,10 +183,10 @@
                                     <td>
                                         <div class="btn-group">
                                             <button class="btn btn-sm btn-warning" title="edit this row"
-                                                wire:click="edit({{ $Product->id }})">Edit</button>
+                                                wire:click="edit({{ $Product->id }})">{{ __("Edit") }}</button>
                                             <button class="btn btn-sm btn-danger" title="delete this row"
                                                 onclick="return confirm('{{ __('Are You Sure ?') }}')"
-                                                wire:click="delete({{ $Product->id }})">Delete</button>
+                                                wire:click="delete({{ $Product->id }})">{{ __("Delete") }}</button>
                                         </div>
                                     </td>
                                 </tr>
