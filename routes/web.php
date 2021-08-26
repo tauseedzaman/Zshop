@@ -13,7 +13,7 @@ Route::view('/addresses','addresses')->name('addresses');
 Route::view('/order','orders')->name('order');
 Route::view('/shop','shop')->name('shop');
 Route::view('/checkout','checkout')->name('checkout');
-Route::view('/about-us','about')->name('about_us');
+Route::get('/about-us',[\App\Http\Controllers\welcomeController::class,'about_us'])->name('about_us');
 Route::view('/contact-us','contact_us')->name('contact_us');
 Route::view('/privacy','privacy')->name('privacy');
 
@@ -39,9 +39,10 @@ Route::middleware(['auth','checksuperadmin'])->group(function () {
         Route::get('manage-FAQ',App\Http\Livewire\Admin\faq::class)->name('admin.faq');
         Route::get('manage-customers',App\Http\Livewire\Admin\users::class)->name('admin.users');
         Route::get('show-customer/{id}',[App\Http\Controllers\adminHelperController::class,'showSingleCustomer'])->name('admin.user_details');
-        // Route::get('/admin/contactMessages',App\Http\Livewire\Admin\ContactedMessages::class)->name('admin.messages');
+        Route::get('/admin/contactMessages',App\Http\Livewire\Admin\ContactedMessages::class)->name('admin.messages');
         Route::get('manage-about-us-page',[App\Http\Controllers\adminHelperController::class,'manage_aboutUs_page'])->name('admin.aboutUs');
         Route::post('manage-about-us-page',[App\Http\Controllers\adminHelperController::class,'store'])->name('admin.aboutUs');
+        Route::post("upload_cke_image",[App\Http\Controllers\adminHelperController::class,'uploadCKEImage'])->name('ckeditor.image-upload');
     });
 });
 

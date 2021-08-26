@@ -21,7 +21,7 @@
     <section class="products section">
         <div class="container">
             @livewire('products')
-            </div>
+        </div>
     </section>
 
 

@@ -83,6 +83,13 @@
                 {{ __('Customers') }}
                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
             </a>
+
+            <a class="nav-link collapsed" href="{{ route('admin.messages') }}" data-bs-toggle="collapse"
+                data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                {{ __('Messages') }}
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
             <a class="nav-link" href="{{ route('admin.aboutUs') }}">
                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                {{ __("About-Us") }}
