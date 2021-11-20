@@ -30,19 +30,18 @@ class welcomeController extends Controller
             'products' => $products,
             'searchItem' => $item
         ]);
-    }   
+    }
 
     public function show_searched_item_by_category($id)
     {
-        $products = product::where('category_id',$id)->get();
+        $category = category::find($id)->first();
         return view('search',[
-            'products' => $products,
-            'searchItem' => $id
+            'category' => $category,
         ]);
-    }  
+    }
 
     /*
-    * show FAQ's 
+    * show FAQ's
     */
     public function faq()
     {
@@ -62,7 +61,7 @@ class welcomeController extends Controller
             'products' => $products,
             'searchItem' => $name
         ]);
-    }  
+    }
 
     public function about_us()
     {
@@ -70,5 +69,5 @@ class welcomeController extends Controller
             'data' => aboutUs::latest()->first()
         ]);
     }
-    
+
 }

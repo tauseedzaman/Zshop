@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\category;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -13,15 +14,11 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        $list = ['html','css','javascript','php','python'];
+        if (category::count() == 0) {
 
-        foreach($list as $i){
-            \App\Models\category::create([
-                'name' => $i,
-                'description' => 'this is a simple category just for testing my skills',
-                'thumbnail' => 'storage/category.jpg'
-            ]);
+            category::factory(6)->create();
+
         }
-       
+
     }
 }
