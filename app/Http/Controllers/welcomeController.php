@@ -25,10 +25,10 @@ class welcomeController extends Controller
 
     public function show_searched_items($item)
     {
-        $products = product::where('id',$item)->orWhere('name','LIKE','%'.$item.'%')->orWhere('weight',$item)->orWhere('description','LIKE','%'.$item.'%')->orWhere('price',$item)->get();
-        return view('search',[
+        $products = product::where('id',$item)->orWhere('name','LIKE','%'.$item.'%')->orWhere('weight',$item)->orWhere('description','LIKE','%'.$item.'%')->orWhere('price',$item)->with('category')->get();
+        return view('searchItem',[
             'products' => $products,
-            'searchItem' => $item
+            'searchedItem' => $item
         ]);
     }
 
@@ -56,10 +56,10 @@ class welcomeController extends Controller
     */
     public function show_searched_item_by_name($name)
     {
-        $products = product::where('name',$name)->orWhere('description','LIKE','%',$name.'%')->latest()->paginate(9 );
-        return view('search',[
+        $products = product::where('name',$name)->orWhere('description','LIKE','%',$name.'%')->latest()->paginate(9);
+        return view('searchItem',[
             'products' => $products,
-            'searchItem' => $name
+            'searchedItem' => $name
         ]);
     }
 
