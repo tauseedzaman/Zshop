@@ -1,5 +1,5 @@
 
-## Laravel Zshop 
+## Zshop 
 
 Zshop is e-commerse based web application build with **laravel** by [Tauseed Zaman](https://github.com/tauseedzaman).
 ### How to Install Zshop 
@@ -11,10 +11,10 @@ Zshop is e-commerse based web application build with **laravel** by [Tauseed Zam
 - **php artisan migrate**
 - **php artisan db:seed**
 - **php artisan serve**
-- **[http://127.0.0.1:8000/]**
+- **[http://127.0.0.1:8000/](http://127.0.0.1:8000/)**
 
 
 ## License
 
 The Zshop is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-"# Zshop" 
+
