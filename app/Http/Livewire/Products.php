@@ -27,4 +27,3 @@ class Products extends Component
         ]);
     }
 }
- 

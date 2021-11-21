@@ -17,6 +17,9 @@ class ProductMenuLike extends Component
 
     public function save_like()
     {
+        if (!auth()->id()) {
+            return redirect()->route('login');
+        }
         likes::firstOrCreate([
             'user_id' => auth()->id(),
             'product_id' =>$this->Id

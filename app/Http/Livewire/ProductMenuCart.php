@@ -18,6 +18,9 @@ class ProductMenuCart extends Component
 
     public function add_to_cart()
     {
+        if (!auth()->id()) {
+            return redirect()->route('login');
+        }
         cart::create([
             'user_id' => auth()->id(),
             'product_id' => $this->Id

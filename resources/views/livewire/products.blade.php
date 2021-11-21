@@ -10,15 +10,8 @@
                                 <i class="tf-ion-ios-search-strong"></i>
                             </a>
                         </li>
-                        <li>
-                            <span id="productId" value="{{ $product->id }}" data-pid="{{ $product->id }}"><i
-                                    class="tf-ion-ios-heart"></i>
-                            </span>
-                        </li>
-                        <li>
-                            <a href="{{ route('add_product_to_cart', $product->id) }}"><i
-                                    class="tf-ion-android-cart"></i></a>
-                        </li>
+                        @livewire('product-menu-like', ['kid' =>$product->id ])
+                        @livewire('product-menu-cart', ['cid' =>$product->id ])
                     </ul>
                 </div>
             </div>
