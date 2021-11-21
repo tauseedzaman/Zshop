@@ -68,8 +68,7 @@
 
             <div class="row mt-4 shadow rounded p-3">
                 <div class="col mx-auto">
-                    <h2 class="text-success rounded text-center shadow p-3 bg-info text-light border border-success">{{ __("All
-                        Categories") }}</h2>
+                    <h2 class="text-success rounded text-center shadow p-3 bg-info text-light border border-success">{{ __("Categories") }}</h2>
                     <table class="table table-all table-hoverable">
                         <thead>
                             <tr>
@@ -89,7 +88,7 @@
                                     <td>{{ $category->description }}</td>
                                     <td><img width="50px" height="50px"
                                             src="{{ config('app.url') . $category->thumbnail }}" alt="image"></td>
-                                    <td>{{ $category->created_at->format('d-m-y') }}</td>
+                                    <td>{{ $category->created_at->format('d/m/y') }}</td>
                                     <td>
                                         <div class="btn-group">
                                             <button class="btn btn-sm btn-warning" title="edit this row"

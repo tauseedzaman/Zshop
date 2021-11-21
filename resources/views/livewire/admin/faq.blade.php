@@ -12,7 +12,7 @@
                 </div>
             </div>
             <form class=" p-2 shadow bg-light rounded my-4 " wire:submit.prevent="add_new_faq">
-                <h2 class="text-success shadow p-3 bg-success text-light border border-success">Create New FAQ's</h2>
+                <h2 class="text-success shadow p-3 bg-success text-light border border-success">Create New FAQ</h2>
                 <div class="row mb-3">
                     <div class="col-12 mx-auto">
                         <div class="form-floating mb-3 mb-md-0">
@@ -42,7 +42,7 @@
 
             <div class="row mt-4 shadow rounded p-3">
                 <div class="col mx-auto">
-                    <h2 class="text-success rounded text-center shadow p-3 bg-info text-light border border-success">All FAQ's</h2>
+                    <h2 class="text-success rounded text-center shadow p-3 bg-info text-light border border-success">FAQ's</h2>
                     <table class="table table-all table-hoverable">
                         <thead>
                         <tr>
@@ -59,7 +59,7 @@
                                 <td>{{ $faq->id }}</td>
                                 <td>{{ $faq->question }}</td>
                                 <td>{{ $faq->answer }}</td>
-                                <td>{{ $faq->created_at->format('d-M-Y') }}</td>
+                                <td>{{ $faq->created_at->format('d/m/Y') }}</td>
                                 <td>
                                     <div class="btn-group">
                                         <button class="btn btn-sm btn-warning" title="edit this row" wire:click="edit({{$faq->id}})">Edit</button>

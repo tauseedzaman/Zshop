@@ -37,8 +37,8 @@ class DatabaseSeeder extends Seeder
             SubscriberSeeder::class,
             FaqSeeder::class
         ]);
-        // if (User::count() < 50) {
-            // User::factory(1000)->create();
-        // }
+        if (User::count() < 50) {
+            User::factory(1000)->create();
+        }
     }
 }

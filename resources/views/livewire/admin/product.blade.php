@@ -11,7 +11,7 @@
                     @endif
                 </div>
             </div>
-         
+
             <form class=" p-2 shadow bg-light rounded my-4 " wire:submit.prevent="add_new_product">
                 <h2 class="text-success shadow p-3 bg-success text-light border rounded border-success">{{ __("Create New Porduct") }}</h2>
 
@@ -104,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col mx-auto">
                     <div class="form-group">
                         <label for="Thumbnail">{{ __("Choose Product Image") }}</label>
@@ -126,7 +126,7 @@
                         </div>
                     </div>
                 </div>
-                
+
 
 
                 <div class="mt-4 mb-0">
@@ -146,19 +146,18 @@
             </div>
             <div class="row mt-4 shadow rounded p-3">
                 <div class="col mx-auto">
-                    <h2 class="text-success rounded text-center shadow p-3 bg-info text-light border border-success">All
+                    <h2 class="text-success rounded text-center shadow p-3 bg-info text-light border border-success">
                         Products</h2>
                     <table class="table table-all table-hoverable">
                         <thead>
                             <tr>
                                 <th style="width: 10px">#</th>
                                 <th>{{ __("Name") }}</th>
-                                <th>{{ __("Weight") }}</th>
+                                <th>Weight<sup class="text-info">kg</sup></th>
                                 <th>{{ __("Stock") }}</th>
                                 <th>{{ __("Description") }}</th>
                                 <th>{{ __("Category") }}</th>
                                 <th>{{ __("Image") }}</th>
-                                <th>{{ __("Thumbnail") }}</th>
                                 <th>{{ __("Created_at") }}</th>
                                 <th>{{ __("Actions") }}</th>
                             </tr>
@@ -173,12 +172,11 @@
                                     <td>{{ $Product->description }}</td>
                                     <td>{{ $Product->category_id }}</td>
 
-                                    <td><img width="50px" height="50px"
+                                    <td><img width="80px" height="80px"
                                             src="{{ config('app.url') . $Product->image }}" alt="image"></td>
 
-                                    <td><img width="50px" height="50px"
-                                            src="{{ config('app.url') . $Product->thumbnail }}" alt="image"></td>
-                                    <td>{{ $Product->created_at->format('d-m-y') }}</td>
+
+                                    <td>{{ $Product->created_at->format('d/m/y') }}</td>
 
                                     <td>
                                         <div class="btn-group">

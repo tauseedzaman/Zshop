@@ -11,7 +11,10 @@ class ContactedMessages extends Component
     protected $paginationTheme = 'bootstrap';
     public $search;
 
-
+    public function delete($id)
+    {
+        contactus::find($id)->delete();
+    }
 
     public function render()
     {

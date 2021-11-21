@@ -4,7 +4,7 @@
 <div id="layoutSidenav_content">
     <main class="bg-light">
         <div class="container-fluid px-4 ">
-            <h1 class="mt-4 bg-info shadow p-2 rounded">{{ config('app.name') . __('About Us ') }}</h1>
+            <h1 class="mt-4 bg-info shadow p-2 rounded">{{ config('app.name') . __(' About Us ') }}</h1>
             <div class="row">
                 <div class="col mx-auto">
                     @if (session()->has('message'))

@@ -8,7 +8,7 @@ class MenuCart extends Component
 {
     public $total_price;
 
-    public function delete_product_from_cart($id)
+    public function delete($id)
     {
         cart::find($id)->delete();
             return $this->products = cart::where('user_id',auth()->id())->get();

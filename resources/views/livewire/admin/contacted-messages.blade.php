@@ -1,7 +1,7 @@
 <div id="layoutSidenav_content">
     <main class="bg-light">
-        <div class="container-fluid px-4 ">
-            <h1 class="mt-4 bg-info shadow p-2 rounded">{{ config('app.name') . __(' Clients Messages') }}</h1>
+        <div class="container-fluid px-4 py-4">
+            <h1 class="mt-4 bg-primary shadow p-2 rounded">{{ config('app.name') . __(' Clients Messages') }}</h1>
             <div class="row">
                 <div class="col mx-auto">
                     @if (session()->has('message'))
@@ -14,7 +14,7 @@
 
             <div class="row mt-4 shadow rounded p-3">
                 <div class="col mx-auto">
-                    <h2 class="text-success rounded text-center shadow p-3 bg-info text-light border border-success">{{ __("All
+                    <h2 class="text-success rounded text-center shadow p-3 bg-info text-light border border-success">{{ __("
                         Messages") }}</h2>
                     <input type="search" class="form-control " wire:model="search" name="search" id="search"
                         placeholder="search for customer by name ">
@@ -45,7 +45,7 @@
                                         <div class="btn-group">
                                             <button class="btn btn-sm btn-danger" title="delete this row"
                                                 onclick="return confirm('{{ __('Are You Sure ?') }}')"
-                                                wire:click="delete({{ $client->id }})" disabled>{{ __("Delete") }}</button>
+                                                wire:click="delete({{ $client->id }})" >{{ __("Delete") }}</button>
                                         </div>
                                     </td>
                                 </tr>

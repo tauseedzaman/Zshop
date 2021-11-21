@@ -14,7 +14,7 @@
 
             <div class="row mt-4 shadow rounded p-3">
                 <div class="col mx-auto">
-                    <h2 class="text-success rounded text-center shadow p-3 bg-info text-light border border-success">{{ __("All
+                    <h2 class="text-success rounded text-center shadow p-3 bg-info text-light border border-success">{{ __("
                         Customers") }}</h2>
                     <input type="search" class="form-control " wire:model="search" name="search" id="search"
                         placeholder="search for customer by name ">
@@ -25,7 +25,6 @@
                                 <th>{{ __("Name") }}</th>
                                 <th>{{ __("Email") }}</th>
                                 <th>{{ __("Phone") }}</th>
-                                <th>{{ __("Address") }}</th>
                                 <th>{{ __("Created_at") }}</th>
                                 <th>{{ __("Actions") }}</th>
                             </tr>
@@ -40,12 +39,12 @@
                                     <td>{{ $customer->email }}</td>
                                     <td>{{ $customer->phone }}</td>
                                     <td>{{ $customer->default_shipping_address }}</td>
-                                    <td>{{ $customer->created_at->format('d-M-Y') }}</td>
+                                    <td>{{ $customer->created_at->diffForHumans() }}</td>
                                     <td>
                                         <div class="btn-group">
                                             <button class="btn btn-sm btn-danger" title="delete this row"
                                                 onclick="return confirm('{{ __('Are You Sure ?') }}')"
-                                                wire:click="delete({{ $customer->id }})" disabled>{{ __("Delete") }}</button>
+                                                wire:click="delete({{ $customer->id }})">{{ __("Delete") }}</button>
                                         </div>
                                     </td>
                                 </tr>

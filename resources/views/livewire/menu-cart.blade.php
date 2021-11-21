@@ -13,7 +13,7 @@
             </div>
             <h5><strong>${{ $product->product->price }}</strong></h5>
         </div>
-        <span wire:click="delete_product_from_cart({{ $product->id }})" class="remove"><i
+        <span wire:click="delete({{ $product->id }})" class="remove"><i
                 class="tf-ion-close"></i></span>
     </div>
 @empty

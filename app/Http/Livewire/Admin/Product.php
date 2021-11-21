@@ -54,18 +54,13 @@ class Product extends Component
 
             $product = productModel::create([
                 'name'        => $this->name,
-                'stock'       => $this->stock, 
+                'stock'       => $this->stock,
                 'weight'        => $this->weight,
                 'price'        => $this->price,
                 'thumbnail'  => $this->storeImage($this->thumbnail),
                 'image'  => $this->storeImage($this->image),
                 'description' => $this->description,
                 'category_id' => $this->category,
-            ]);
-            
-            product_category::create([
-                'product_id' => $product->id, 
-                'category_id' => $this->category, 
             ]);
 
             $this->name="";
@@ -125,7 +120,7 @@ class Product extends Component
         $product->weight = $this->weight;
         $product->stock = $this->stock;
         $product->category_id = $this->category;
-        
+
         if ($this->image) {
             $this->validate([
                 'image' => 'image|max:3072',
@@ -165,13 +160,13 @@ class Product extends Component
     {
         product_category::where('product_id' , $id)->delete();
         $product = productModel::findOrFail($id);
-        
+
         if($product->thumbnail){
             unlink($product->thumbnail);
         }
         if ($product->image) {
             unlink($product->image);
-        }   
+        }
 
         $product->delete();
         session()->flash('message', 'Deleted Successfully.');
@@ -180,7 +175,7 @@ class Product extends Component
     public function render()
     {
         return view('livewire.admin.product',[
-            'products' => productModel::latest()->paginate(3),
+            'products' => productModel::latest()->paginate(30),
             'categories' => category::all()
         ])->layout('admin.layouts.wire_app');
     }

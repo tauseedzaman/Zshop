@@ -30,6 +30,7 @@ Route::middleware(['auth','checksuperadmin'])->group(function () {
         Route::get('manage-orders',App\Http\Livewire\Admin\Orders::class)->name('admin.orders');
         Route::get('manage-FAQ',App\Http\Livewire\Admin\faq::class)->name('admin.faq');
         Route::get('manage-customers',App\Http\Livewire\Admin\users::class)->name('admin.users');
+        Route::get('manage-subscribers',App\Http\Livewire\Admin\Subscribers::class)->name('admin.subscribers');
         Route::get('show-customer/{id}',[App\Http\Controllers\adminHelperController::class,'showSingleCustomer'])->name('admin.user_details');
         Route::get('/admin/contactMessages',App\Http\Livewire\Admin\ContactedMessages::class)->name('admin.messages');
         Route::get('manage-about-us-page',[App\Http\Controllers\adminHelperController::class,'manage_aboutUs_page'])->name('admin.aboutUs');

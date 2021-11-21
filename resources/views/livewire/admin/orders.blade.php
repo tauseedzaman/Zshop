@@ -14,7 +14,7 @@
 
             <div class="row mt-4 shadow rounded p-3">
                 <div class="col mx-auto">
-                    <h2 class="text-success rounded text-center shadow p-3 bg-info text-light border border-success">All Orders</h2>
+                    <h2 class="text-success rounded text-center shadow p-3 bg-info text-light border border-success">Orders</h2>
                     <table class="table table-all table-hoverable">
                         <thead>
                         <tr>
@@ -54,6 +54,8 @@
                             </tr>
                         @empty
                             <tr>
+                                <td class="text-warning">{{ __('Null') }}</td>
+                                <td class="text-warning">{{ __('Null') }}</td>
                                 <td class="text-warning">{{ __('Null') }}</td>
                                 <td class="text-warning">{{ __('Null') }}</td>
                                 <td class="text-warning">{{ __('Null') }}</td>

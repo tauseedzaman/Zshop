@@ -80,7 +80,7 @@ class Category extends Component
         $this->button_text="Update Categroy";
     }
 
-    
+
     /*
     * Update Category by id
     */
@@ -90,7 +90,7 @@ class Category extends Component
             'name' => 'required|max:50',
             'description' => 'required',
         ]);
-        
+
         $category = \App\Models\category::findOrFail($id);
         $category->name = $this->name;
         $category->description = $this->description;
@@ -98,7 +98,7 @@ class Category extends Component
             $this->validate([
                 'thumbnail' => 'image',
             ]);
-               
+
             if($category->thumbnail){
                 unlink($category->thumbnail);
             }
@@ -135,7 +135,7 @@ class Category extends Component
     public function render()
     {
         return view('livewire.admin.category',[
-            'categories' => \App\Models\category::latest()->paginate(3)
+            'categories' => \App\Models\category::latest()->paginate(5)
         ])->layout('admin.layouts.wire_app');
     }
 }
